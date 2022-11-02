@@ -2,7 +2,9 @@ package osipovmr;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class Main {
     public static File test = new File("/Users/vulpix_li/Downloads/ParseTxt/src/test.txt");
@@ -12,11 +14,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
-        //ReadFile.ReadFile(test);
-        //ReadFile.ReadFile(test2);
-        ReadFile.ReadFile(test3);
-
-
-        //Similarity.findSimilarity(ReadFile.inputOne, ReadFile.inputTwo);
+        Files.write(Paths.get("output.txt"), ReadFile.ReadFile(test), StandardOpenOption.CREATE);
+        Files.write(Paths.get("output2.txt"), ReadFile.ReadFile(test2), StandardOpenOption.CREATE);
+        Files.write(Paths.get("output3.txt"), ReadFile.ReadFile(test3), StandardOpenOption.CREATE);
     }
 }
